@@ -13,9 +13,7 @@
     />
   </head>
   <body>
-    <h1>Django Calculator App</h1>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Django Calculator App</a>
 
@@ -36,6 +34,10 @@
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#instructions">Instructions</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -47,7 +49,7 @@
           <img class="img-fluid" src="{% static 'main.jpg' %}">
           <div class="card">
             <div class="card-body">
-              <form method="GET" action="#">
+              <form method="GET" action="{% url 'submitquery'%}">
                 <div class="mb-3">
                   <input type="search" class="form-control" name="query" id="query">
                 </div>
@@ -77,6 +79,23 @@
           <p class="lead" style="text-align: center;">
             Our Calculator app can perform mathematical operations
           </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6" style="margin: 2rem auto 0 auto;">
+          <p class="display-4" id="instructions" name="about" style="text-align: center;">
+            Instructions
+          </p>
+          <hr>
+          <ul class="list-group">
+            <li class="list-group-item">+ Addition</li>
+            <li class="list-group-item">- Subtraction</li>
+            <li class="list-group-item">* Multiplication</li>
+            <li class="list-group-item">/ Division</li>
+            <li class="list-group-item">// Floor Division</li>
+            <li class="list-group-item">( ) Parentheses</li>
+          </ul>
         </div>
       </div>
     </main>
