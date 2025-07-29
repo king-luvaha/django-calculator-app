@@ -5,3 +5,7 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request, 'index.html')
+
+def submitquery(request):
+    q = request.GET['query']
+    return HttpResponse(q)
