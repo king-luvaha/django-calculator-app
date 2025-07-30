@@ -6,7 +6,7 @@ A simple calculator web application built with Django. This project demonstrates
 
 ## Preview
 
-[PREVIEW](dca.gif)
+![PREVIEW](dca.gif)
 
 ---
 ## Folder Structure
