@@ -13,7 +13,7 @@ A simple calculator web application built with Django. This project demonstrates
 
 ```
 django-calculator-app/
-├── djangoprojects/
+├── djangoprojects/            # Calculator logic (views, URLs)
 │   ├── calculatorapp/
 │   │   ├── migrations/
 │   │   ├── __init__.py
@@ -29,7 +29,7 @@ django-calculator-app/
 │   │   ├── settings.py
 │   │   ├── urls.py
 │   │   └── wsgi.py
-│   ├── rootapp/
+│   ├── rootapp/               # Home and base routing
 │   │   ├── migrations/
 │   │   ├── __init__.py
 │   │   ├── admin.py
@@ -40,32 +40,27 @@ django-calculator-app/
 │   │   └── views.py
 │   ├── static/
 │   │   └── main.jpg
-│   ├── templates/
+│   ├── templates/             # HTML templates
 │   │   └── calculatorapp/
-│   ├── db.sqlite3
-│   └── manage.py
-├── venv/
+│   ├── db.sqlite3             # SQLite database
+│   └── manage.py              # Django management script
+├── venv/                      # Python virtual environment
 ├── .gitignore
-└── requirements.txt
+└── requirements.txt           # Project dependencies
 ```
 
 ---
 
-## Features
+## 🚀 Features
 
-- Perform basic arithmetic operations: addition, subtraction, multiplication, division
-- Clean, user-friendly web interface
-- Follows Django best practices with reusable apps
+- Evaluate arithmetic expressions securely.
+- Handles parentheses, operator precedence, and invalid inputs.
+- Clean and responsive frontend using Bootstrap.
+- Organized with reusable Django apps.
 
 ---
 
 ## Getting Started
-
-### Prerequisites
-
-- Python 3.8+
-- pip (Python package manager)
-- (Recommended) virtualenv
 
 ### Installation
 
@@ -75,18 +70,26 @@ django-calculator-app/
    cd django-calculator-app/djangoprojects
    ```
 
-2. **(Optional) Create and activate a virtual environment:**
+2. **Create and activate a virtual environment:**
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Install dependencies:**
+3. **Install Dependencies**
+
    ```bash
    pip install -r ../requirements.txt
    ```
 
-4. **Run migrations:**
+   If you don’t have a `requirements.txt` file, you can generate one:
+
+   ```bash
+   pip freeze > ../requirements.txt
+   ```
+
+
+4. **Run Database Migrations:**
    ```bash
    python manage.py migrate
    ```
@@ -101,23 +104,53 @@ django-calculator-app/
 
 ---
 
-## Usage
+## 🌐 View the Calculator
 
-- Enter numbers and select an arithmetic operation on the web interface.
-- View the result displayed instantly.
+Once the server is running, **go to your browser** and open:
+
+```
+http://localhost:8000/calculatorapp
+```
+
+This will take you directly to the calculator interface.
+
+If you're unsure, check the terminal output for:
+
+```
+Starting development server at http://127.0.0.1:8000/
+```
+
+Then manually navigate to `/calculatorapp`.
 
 ---
 
-## Project Structure Explained
+## 📦 Expression Logic
 
-- `calculatorapp/`: Main app for calculator logic and views.
-- `rootapp/`: Additional Django app (purpose may vary; extend as needed).
-- `djangoprojects/djangoprojects/`: Django project settings and configuration.
-- `static/`: Static files (e.g., images).
-- `templates/`: HTML templates for the calculator app.
-- `db.sqlite3`: Default SQLite database (auto-generated).
-- `requirements.txt`: Python dependencies.
-- `manage.py`: Django’s CLI utility.
+The calculator uses Python’s `ast` module to safely parse and evaluate expressions without the security risks of `eval()`. It only supports:
+
+- Addition `+`
+- Subtraction `-`
+- Multiplication `*`
+- Division `/`
+- Parentheses `( )`
+
+---
+
+## 🧪 Example Usage
+
+**Input:**
+
+```
+(2 + 3) * 4 - 7 / (1 + 1)
+```
+
+**Output:**
+
+```
+18.5
+```
+
+Invalid expressions like `2 +` or `5 / 0` are handled with user-friendly error messages.
 
 ---
 
